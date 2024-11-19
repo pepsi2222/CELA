@@ -1,0 +1,58 @@
+# ------------ Transformers' Arguments For Cotrain Task-------------------
+train:
+    output_dir: ./cotrain/
+    num_train_epochs: 10
+    lr_scheduler_type: linear
+    per_device_train_batch_size: 512
+    per_device_eval_batch_size: 512
+    logging_strategy: epoch
+    logging_nan_inf_filter: False
+    save_strategy: epoch
+    metric_for_best_model: auc
+    greater_is_better: True
+    evaluation_strategy: epoch
+
+    
+    load_best_model_at_end: True
+    prediction_loss_only: False
+
+    learning_rate: 5e-5
+    weight_decay: 0.0
+
+    gradient_accumulation_steps: 1
+
+model:
+    model_name_or_path: ~ #roberta-base/ #/home/ma-user/work/.lsp_symlink/data/best_mlm
+    cache_dir: ./cotrain/cache
+
+    # Further pretrained LM' best checpoint
+    config_name: ~ #/home/ma-user/work/.lsp_symlink/data/best_mlm
+    tokenizer_name: ~ #/home/ma-user/work/.lsp_symlink/data/best_mlm
+
+data:
+    max_seq_length: 256
+
+pretrained_dir_for_lm_part: ~
+pretrained_dir: ~
+load_pretrained_part: all # all / embedding
+
+user_bins: 1
+item_bins: 7
+do_infer: False
+
+alter_callback:
+    lm_universal_strategy: epoch
+    lm_universal_interval: 1
+    # lm_alter_strategy: epoch
+    # lm_alter_interval: 1
+    lm_per_device_train_batch_size: 8
+
+    ctr_universal_strategy: epoch
+    ctr_universal_interval: 1
+    # ctr_alter_strategy: epoch
+    # ctr_alter_interval: 1
+    ctr_per_device_train_batch_size: 512
+
+lora:
+    r: 8
+    alpha: 16

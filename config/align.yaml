@@ -1,0 +1,49 @@
+language_model:
+    projection_layers: [128]
+    activation: relu
+    dropout: 0.0
+
+ctr_model:
+    name: DIN
+    pretrained_dir: /home/ma-user/work/.lsp_symlink/data/best_ctr
+    projection_layers: [128]
+    activation: relu
+    dropout: 0.0
+
+    learning_rate: 3e-3
+    weight_decay: 3e-2
+
+split_ratio: [0.8, 0.2, 0.0]
+tophot_percent: 1.0
+
+loss:
+    loss_fn: infonce
+    score_fn: inner
+    neg_count: 1        # BPR
+    temperature: 1.0    # InfoNCE
+    weighted_by_item_popularity: False
+
+
+model:
+    model_name_or_path: ~ # /home/ma-user/work/.lsp_symlink/data/best_mlm
+    cache_dir: ./align/cache
+
+
+train:
+    output_dir: ./align/
+    num_train_epochs: 10
+    lr_scheduler_type: linear
+    per_device_train_batch_size: 64
+    per_device_eval_batch_size: 64
+    logging_strategy: steps
+    logging_nan_inf_filter: False
+    save_strategy: steps
+    label_names: ~
+    metric_for_best_model: loss
+    greater_is_better: False
+    evaluation_strategy: steps
+    prediction_loss_only: True
+    load_best_model_at_end: True
+
+    learning_rate: 5e-5
+    weight_decay: 0.0

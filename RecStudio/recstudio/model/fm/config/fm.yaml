@@ -1,0 +1,5 @@
+model:
+    embed_dim: 10
+
+data:
+    binarized_rating_thres: 3.0

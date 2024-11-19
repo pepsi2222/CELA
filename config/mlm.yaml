@@ -1,0 +1,35 @@
+# ------------ Transformers' Arguments For MLM -------------------
+model:
+    model_name_or_path: /home/ma-user/work/.lsp_symlink/data/roberta-base
+    cache_dir: ./mlm/cache
+
+train:
+    output_dir: ./mlm/
+    num_train_epochs: 10.0
+    lr_scheduler_type: linear
+    per_device_train_batch_size: 32
+    per_device_eval_batch_size: 32
+    logging_strategy: steps
+    logging_nan_inf_filter: False
+    save_strategy: steps
+    label_names: ~
+    metric_for_best_model: loss
+    greater_is_better: False
+    evaluation_strategy: steps
+    prediction_loss_only: True
+    load_best_model_at_end: True
+    
+    learning_rate: 5e-5
+    weight_decay: 0.0
+
+    overwrite_output_dir: True
+
+data:
+    max_seq_length: 256
+    
+
+simcse: True
+mlm: True
+temperature: 0.05
+score_fn: cos
+mlm_weight: 0.1

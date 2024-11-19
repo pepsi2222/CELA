@@ -1,0 +1,29 @@
+# ---------- Amazon ---------------
+ctr_model:
+    reduction_ratio: 3
+    excitation_activation: relu
+    bilinear_type: interaction
+    mlp_layer: [128, 64, 64]
+    activation: relu
+    dropout: 0.0
+    shared_bilinear: True
+    batch_norm: True
+
+    
+    learning_rate: 5e-3
+    weight_decay: 8e-2
+
+# --------- MovieLens ----------
+# ctr_model:
+#     reduction_ratio: 3
+#     excitation_activation: relu
+#     bilinear_type: interaction
+#     mlp_layer: [128, 64, 64]
+#     activation: relu
+#     dropout: 0.0
+#     shared_bilinear: True
+#     batch_norm: True
+
+    
+#     learning_rate: 8e-3
+#     weight_decay: 8e-2

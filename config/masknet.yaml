@@ -1,0 +1,13 @@
+# ---------- Amazon ---------------
+ctr_model:
+  parallel: False
+  num_blocks: 3
+  block_dim: [128, 64, 64] #64 
+  reduction_ratio: 2
+  hidden_layer_norm: True
+  mlp_layer: [128, 64, 64]
+  activation: relu
+  dropout: 0.0
+
+  learning_rate: 3e-3
+  weight_decay: 7e-2

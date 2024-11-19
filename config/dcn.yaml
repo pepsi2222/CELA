@@ -1,0 +1,23 @@
+# ----------- Amazon ---------------
+ctr_model:
+    mlp_layer: [128, 64, 64]
+    activation: relu
+    num_layers: 2
+    dropout: 0.0
+    batch_norm: True
+
+    
+    learning_rate: 4e-3
+    weight_decay: 5e-2
+
+# ------------- MovieLens -----------
+# ctr_model:
+#     mlp_layer: [128, 64, 64]
+#     activation: relu
+#     num_layers: 2
+#     dropout: 0.0
+#     batch_norm: True
+
+    
+#     learning_rate: 6e-3
+#     weight_decay: 6e-2

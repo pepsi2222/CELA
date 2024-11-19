@@ -1,0 +1,34 @@
+# ------------ Transformers' Arguments For MLM -------------------
+model:
+    model_name_or_path: /home/ma-user/work/.lsp_symlink/data/opt
+    cache_dir: ./clm/cache
+
+train:
+    output_dir: ./clm/
+    num_train_epochs: 10.0
+    lr_scheduler_type: linear
+    per_device_train_batch_size: 8
+    per_device_eval_batch_size: 8
+    logging_strategy: steps
+    logging_nan_inf_filter: False
+    save_strategy: steps
+    label_names: ~
+    metric_for_best_model: accuracy
+    greater_is_better: True
+    evaluation_strategy: steps
+    prediction_loss_only: False
+    load_best_model_at_end: True
+    
+    learning_rate: 5e-5
+    weight_decay: 0.0
+
+    overwrite_output_dir: True
+    gradient_accumulation_steps: 3
+
+data:
+    block_size: 256
+    keep_linebreaks: True
+
+lora:
+    r: 8
+    alpha: 16

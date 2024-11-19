@@ -1,0 +1,44 @@
+# ----------- Amazon ---------------
+ctr_model:
+
+    wide: True
+    deep: True
+    mlp_layer: [128, 64, 64]
+    activation: relu
+    batch_norm: True
+
+    dropout: 0.001
+    attention_dim: 16
+    num_attention_layers: 3
+    n_head: 1
+
+    residual: True
+    residual_project: False
+    layer_norm: True
+
+    
+    learning_rate: 3e-3
+    weight_decay: 8e-2
+
+# ------------- MovieLens -----------
+
+# ctr_model:
+
+#     wide: True
+#     deep: True
+#     mlp_layer: [128, 64, 64]
+#     activation: relu
+#     batch_norm: True
+
+#     dropout: 0.001
+#     attention_dim: 16
+#     num_attention_layers: 3
+#     n_head: 1
+
+#     residual: True
+#     residual_project: False
+#     layer_norm: True
+
+    
+#     learning_rate: 5e-3
+#     weight_decay: 5e-2
