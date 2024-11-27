@@ -44,7 +44,7 @@ If you find this project useful in your research, please cite our research paper
 ```
 @article{wang2024cela,
   title={CELA: Cost-Efficient Language Model Alignment for CTR Prediction},
-  author={Wang, Xingmei and Liu, Weiwen and Chen, Xiaolong and Liu, Qi and Huang, Xu and Lian, Defu and Li, Xiangyang and Wang, Yasheng and Dong, Zhenhua and Tang, Ruiming},
+  author={Wang, Xingmei and Liu, Weiwen and Chen, Xiaolong and Liu, Qi and Huang, Xu and Yichao, Wang and Li, Xiangyang and Wang, Yasheng and Dong, Zhenhua and Lian, Defu and Tang, Ruiming},
   journal={arXiv preprint arXiv:2405.10596},
   year={2024}
 }
