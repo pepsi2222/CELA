@@ -4,7 +4,7 @@ Therefore, this repo aims to provide an efficient fine-tuning method to quickly 
 
 For more details， please refer to [our paper](https://arxiv.org/abs/2405.10596).
 
-<div align=center><img src="./overview.png" alt="overview" style="width: 50%"></div>
+<div align=center><img src="./overview.png" alt="overview" style="width: 80%"></div>
 
 ## Uasge
 
