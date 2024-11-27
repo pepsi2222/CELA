@@ -6,7 +6,7 @@ For more details， please refer to [our paper](https://arxiv.org/abs/2405.10596
 
 <div align=center><img src="./overview.png" alt="overview" style="width: 80%"></div>
 
-## Uasge
+## Usage
 
 Git clone this repo and set `DATA_MOUNT_DIR=[DOWNLOAD_PATH]/data` in your environment.
 
