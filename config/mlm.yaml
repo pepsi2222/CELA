@@ -1,6 +1,6 @@
 # ------------ Transformers' Arguments For MLM -------------------
 model:
-    model_name_or_path: /home/ma-user/work/.lsp_symlink/data/roberta-base
+    model_name_or_path: ~
     cache_dir: ./mlm/cache
 
 train:
