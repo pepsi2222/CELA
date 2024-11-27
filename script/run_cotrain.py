@@ -336,7 +336,7 @@ def run_cotrain(model : str, dataset_dir : str, model_config_path : str = None, 
 
 
 if __name__ == '__main__':
-    dataset = 'amazon-toys'
+    dataset = sys.argv[1]
     if dataset == 'amazon-toys':
         dataset_dir = 'Toys_and_Games'
     elif dataset == 'amazon-sports':
@@ -345,49 +345,15 @@ if __name__ == '__main__':
         dataset_dir = 'MovieLens'
     elif dataset == 'steam':
         dataset_dir = 'Steam'
-
-    train_lm = 'none'
-    align_model_name = sys.argv[1]
-    if train_lm == 'none':
-        output_dir = os.path.join('cotrain/frozen_LM/', align_model_name, 'wo_cm_proj-perdevicebs64-infonce-temperature1.0-inner-lr0.003-wd0.03-dropout0.0')
-    elif train_lm == 'interval-alter':
-        output_dir = os.path.join('cotrain/interval-alter/', align_model_name, 'wo_cm_proj-bs64-infonce-temperature1.0-inner-lr0.003-wd0.03-dropout0.0')
-    elif train_lm == 'always':
-        output_dir = os.path.join('cotrain/always/', align_model_name, 'wo_cm_proj-bs64-infonce-temperature1.0-inner-lr0.003-wd0.03-dropout0.0')
-    else:
-        assert train_lm == 'only'
-        output_dir = os.path.join(f'cotrain/converge-alter/', align_model_name, 'wo_cm_proj-bs64-infonce-temperature1.0-inner-lr0.003-wd0.03-dropout0.0')
-        
-    # Search best alignment checkpoint
-    model_name_or_path = os.path.join(os.getenv('DATA_MOUNT_DIR'), 'simcse_align/', align_model_name, 'wo_cm_proj-perdevicebs64-infonce-temperature1.0-inner-lr0.003-wd0.03-dropout0.0')
-    for i in os.listdir(model_name_or_path):
-        if 'checkpoint-' in i:
-            model_name_or_path = os.path.join(model_name_or_path, i)
-    if 'checkpoint-' not in model_name_or_path:
-        raise ValueError('Please load the best align checkpoint.')
-    
-
-    # pretrained_dir = sys.argv[3]
-
-    print('output_dir: ', output_dir)
-    print('model_name_or_path: ', model_name_or_path)
-    # print('pretrained_dir:', pretrained_dir)
     
 
     run_cotrain(
         model='DIN',
         dataset_dir=os.path.join(os.getenv('DATA_MOUNT_DIR'), dataset_dir),
         mode='light',
-        train_lm=train_lm,
-        output_dir=output_dir,
-        model_name_or_path=model_name_or_path,
-        do_train=False,
-        do_infer=True,
-        config_name=os.path.join(os.getenv('DATA_MOUNT_DIR'), 'simcse_mlm', align_model_name),
-        tokenizer_name=os.path.join(os.getenv('DATA_MOUNT_DIR'), 'simcse_mlm', align_model_name),
-        # pretrained_dir=sys.argv[3],
-        # ctr_model_learning_rate=float(sys.argv[4]),
-        # gradient_accumulation_steps=10,
-        # learning_rate=float(sys.argv[4]),
-        # per_device_train_batch_size=int(sys.argv[5])
+        train_lm='none',
+        output_dir=sys.argv[2],
+        model_name_or_path=sys.argv[3],
+        config_name=os.path.join(os.getenv('DATA_MOUNT_DIR'), sys.argv[4]),
+        tokenizer_name=os.path.join(os.getenv('DATA_MOUNT_DIR'), sys.argv[4]),
     )
