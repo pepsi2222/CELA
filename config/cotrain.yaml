@@ -22,12 +22,12 @@ train:
     gradient_accumulation_steps: 1
 
 model:
-    model_name_or_path: ~ #roberta-base/ #/home/ma-user/work/.lsp_symlink/data/best_mlm
+    model_name_or_path: ~ 
     cache_dir: ./cotrain/cache
 
     # Further pretrained LM' best checpoint
-    config_name: ~ #/home/ma-user/work/.lsp_symlink/data/best_mlm
-    tokenizer_name: ~ #/home/ma-user/work/.lsp_symlink/data/best_mlm
+    config_name: ~ 
+    tokenizer_name: ~ 
 
 data:
     max_seq_length: 256
