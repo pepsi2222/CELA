@@ -415,10 +415,8 @@ def no_sample_and_split(dataset, max_behavior_len=1e5, split_ratio=[0.8, 0.0, 0.
 
 
 if __name__ == '__main__':
-    # seed_everything(sys.argv[1])
-    # dataset = sys.argv[2]
     seed_everything(42)
-    dataset = 'movielens'
+    dataset = sys.argv[1]
 
     if dataset == 'amazon-toys':
         dataset_dir = os.path.join(work_dir, 'data/Toys_and_Games')
