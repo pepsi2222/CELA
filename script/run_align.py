@@ -277,7 +277,7 @@ def run_align(dataset_dir : str, drop_fields : set = set(), mode : str = 'light'
 
 
 if __name__ == '__main__':
-    dataset = 'amazon-toys'
+    dataset = sys.argv[1]
     if dataset == 'amazon-toys':
         dataset_dir = 'Toys_and_Games'
     elif dataset == 'amazon-sports':
@@ -289,16 +289,9 @@ if __name__ == '__main__':
 
     print(sys.argv[1:])
 
-    model_name_or_path = os.path.join(os.getenv('DATA_MOUNT_DIR'), 'simcse_mlm', sys.argv[1])
-    for i in os.listdir(model_name_or_path):
-        if 'checkpoint-' in i:
-            model_name_or_path = os.path.join(model_name_or_path, i)
-    if 'checkpoint-' not in model_name_or_path:
-        raise ValueError('Please load the best align checkpoint.')
-    
+
     run_align(
         dataset_dir=os.path.join(os.getenv('DATA_MOUNT_DIR'), dataset_dir),
         mode='light',
-        model_name_or_path=model_name_or_path,
-        # output_dir=os.path.join('align', sys.argv[1])
+        model_name_or_path=sys.argv[2],
     )
