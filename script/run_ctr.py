@@ -171,7 +171,7 @@ def run_ctr(model : str, dataset_dir : str, model_config_path : str = None, drop
 
 
 if __name__ == '__main__':
-    dataset = 'amazon-sports'
+    dataset = sys.argv[1]
     if dataset == 'amazon-toys':
         dataset_dir = 'Toys_and_Games'
         drop_fields = {'description'}
@@ -188,13 +188,10 @@ if __name__ == '__main__':
         dataset_dir = 'MovieLens'
         drop_fields = {'summary'}
     
-    print(sys.argv[1:])
+
     run_ctr(
-        model=sys.argv[1], 
+        model='DIN', 
         dataset_dir=os.path.join(os.getenv('DATA_MOUNT_DIR'), dataset_dir),
         drop_fields=drop_fields,
         mode='light',
-        # ctr_model_learning_rate=float(sys.argv[2]),
-        # ctr_model_weight_decay=float(sys.argv[3]),
-        # per_device_train_batch_size=int(sys.argv[4])
     )
