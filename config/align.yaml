@@ -5,7 +5,7 @@ language_model:
 
 ctr_model:
     name: DIN
-    pretrained_dir: /home/ma-user/work/.lsp_symlink/data/best_ctr
+    pretrained_dir: ~
     projection_layers: [128]
     activation: relu
     dropout: 0.0
@@ -25,7 +25,7 @@ loss:
 
 
 model:
-    model_name_or_path: ~ # /home/ma-user/work/.lsp_symlink/data/best_mlm
+    model_name_or_path: ~
     cache_dir: ./align/cache
 
 
