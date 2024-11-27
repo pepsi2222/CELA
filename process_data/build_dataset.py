@@ -1,7 +1,7 @@
 import os
 import re
 import sys
-work_dir = re.search('(.*LM4REC).*', os.getcwd(), re.IGNORECASE).group(1)
+work_dir = re.search('(.*CELA).*', os.getcwd(), re.IGNORECASE).group(1)
 sys.path.append(work_dir)
 sys.path.append(os.path.join(work_dir, 'RecStudio'))
 import json
