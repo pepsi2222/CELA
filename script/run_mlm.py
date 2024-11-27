@@ -513,7 +513,7 @@ def _mp_fn(index):
 
 
 if __name__ == "__main__":
-    dataset = 'amazon-sports'
+    dataset = sys.argv[1]
     if dataset == 'amazon-toys':
         dataset_dir = 'Toys_and_Games'
     elif dataset == 'amazon-sports':
@@ -525,6 +525,4 @@ if __name__ == "__main__":
 
     main(
         dataset_dir=os.path.join(os.getenv('DATA_MOUNT_DIR'), dataset_dir),
-        mlm_weight=float(sys.argv[1]),
-        temperature=float(sys.argv[2]),
     )
