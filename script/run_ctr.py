@@ -177,7 +177,7 @@ if __name__ == '__main__':
         drop_fields = {'description'}
     
     if dataset == 'amazon-sports':
-        dataset_dir = 'Sports_and_Games'
+        dataset_dir = 'Sports_and_Outdoors'
         drop_fields = {'description'}
     
     elif dataset == 'steam':
